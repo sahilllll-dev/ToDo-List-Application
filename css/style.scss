@@ -1,0 +1,207 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    list-style: none;
+}
+input:focus {
+    outline: none;
+}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+// font-family: 'Roboto', sans-serif;
+
+@mixin medium {
+    @media screen and(min-width: 768px){
+        @content;
+    }
+}
+@mixin large {
+    @media screen and(min-width: 1024px){
+        @content;
+    }
+}
+
+
+
+
+
+body {
+    background-color: #5087F9;
+}
+.to-do-title {
+    font-size: 18px;
+    margin: 40px 0 40px;
+    text-align: center;
+    color: white;
+    @include medium {
+        font-size: 32px;
+        margin: 70px 0 50px;
+    }
+}
+.flex-items {
+    display: flex;
+}
+.container {
+    max-width: 960px;
+    padding: 30px;
+    width: 345px;
+    background-color: white;
+    margin: 0 auto 70px;
+    border-radius: 10px;
+    box-shadow: 15px 30px 30px rgba(0, 0, 0, .17);
+    max-height:none ;
+    @include medium {
+        padding: 40px;
+        padding: 50px;
+        width: 640px;
+    }
+    @include large {
+        // max-height: 500px;
+        width: 960px;
+    }
+    .new-task {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: center;
+        flex-flow: wrap;
+        @include medium {
+            flex-flow: none;
+        }
+        &.gvspace {
+            margin-bottom: 35px;
+            @include medium {
+                margin-bottom: 70px;
+            }
+        }
+        .new-task-input {
+            height: 60px;
+            width: 100%;
+            padding: 0 25px;
+            background-color: #F1F1F1;
+            border: none;
+            box-shadow: 0 3px 4px rgba(0, 0, 0, .13);
+            font-size: 14px;
+            border-radius: 8px;
+            @include medium {
+                height: 70px;
+                width: 295px;
+            }
+            @include large {
+                width: 550px;
+            }
+        }
+        .btn-style {
+            padding: 18px 46px;
+            font-weight: 400;
+            border-radius: 8px;
+            color: white;
+            font-size: 14px;
+            margin-top: 11px;
+            cursor: pointer;
+            transition: .2s ease-in-out;
+            @include medium {
+                margin-top: 0;
+                font-size: 18px;
+                padding: 24px 25px;
+            }
+            @include large {
+                padding: 24px 40px;
+            }
+            &.addTask-btn {
+                background: #5087F9;
+                &:hover {
+                    background: #346ee4;
+                }
+            }
+            &.save-btn {
+                background: #5087F9;
+                display: none;
+                &:hover {
+                    background: #346ee4;
+                }
+            }
+            &.rfrsh-btn {
+                background: #FF6363;
+                &:hover {
+                    background: #ff4747;
+                }
+            }
+        }
+    }
+    .toDoLists-container {
+        border-radius: 10px;
+        overflow-y: auto ;
+        max-height: 320px;
+        @include medium {
+            max-height: 505px;
+        }
+        @include large {
+            max-height: 315px;
+        }
+        .toDoLists {
+            .toDoList-item {
+                background-color: #F9F9F9;
+                box-shadow: 0 3px 4px rgba(0, 0, 0, .09);
+                justify-content: space-between;
+                font-size: 14px;
+                margin-bottom: 15px;
+                padding: 24px 15px;
+                border-radius: 8px;
+                transition: .5s ease-in-out;
+                @include medium {
+                    margin-bottom: 20px;
+                    font-size: 18px;
+                    padding: 24px 25px;
+                }
+                .item-container {
+                    align-items: center;
+                    &.item-contains-lhs {
+                        .item-index {
+                            margin-right: 10px;
+                            @include medium {
+                                margin-right: 20px;
+                            }
+                        }
+                    }
+                    // &.item-contains-lhs {
+                        
+                    // }
+                    .list-icon {
+                        align-items: center;
+                        margin-right: 5px;
+                        @include medium {
+                            margin-right: 30px;
+                        }
+                        p {
+                            display: none;
+                            @include medium {
+                                display: block;
+                            }
+                        }
+                        cursor: pointer;
+                        &:nth-child(2) {
+                            margin: 0;
+                        }
+                        svg {
+                            margin-right: 10px;
+                            .icon {
+                                transition: .2s ease-in-out;
+                                &.edit-icon {
+                                    fill :#5087f9;
+                                }
+                                &.circle {
+                                    fill: #FF6363;
+                                }
+                                &:hover {
+                                    fill: #121212;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
